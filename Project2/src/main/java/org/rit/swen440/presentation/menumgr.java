@@ -75,7 +75,7 @@ public class menumgr
         else if (Objects.equals(result, "p"))
         {
         	System.out.println("You have purchased:");
-        	for (string product: sessionPurchases.keySet()) 
+        	for (String product: sessionPurchases.keySet()) 
         	{
         		System.out.println(" - " + sessionPurchases.get(product) + " " + product + "(s)");
         	}
@@ -126,7 +126,7 @@ public class menumgr
         else if (Objects.equals(result, "p"))
         {
         	System.out.println("You have purchased:");
-        	for (string product: sessionPurchases.keySet()) 
+        	for (String product: sessionPurchases.keySet()) 
         	{
         		System.out.println(" - " + sessionPurchases.get(product) + " " + product + "(s)");
         	}
