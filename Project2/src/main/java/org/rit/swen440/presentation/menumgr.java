@@ -17,12 +17,11 @@ public class menumgr
     category currentCategory;
     item currentItem;
     private Controller controller;
-    HashMap<String, int> sessionPurchases = new HashMap<String, int>();
+    private HashMap<String, Integer> sessionPurchases = new HashMap<String, Integer>();
 
     public menumgr()
     {
         controller = new Controller(System.getProperty("fileSystemRoot"));
-
     }
 
     public boolean loadLevel(int level)
@@ -57,6 +56,7 @@ public class menumgr
         List<String> categories = controller.getCategories();
         m.loadMenu(categories);
         m.addMenuItem("'q' to Quit"); 
+        m.addMenuItem("'p' to view Session Purchases");
         System.out.println("The following org.rit.swen440.presentation.categories are available");
         m.printMenu();
         String result = "0";
@@ -71,6 +71,14 @@ public class menumgr
         if (Objects.equals(result,"q"))
         {
             currentLevel--;
+        }
+        else if (Objects.equals(result, "p"))
+        {
+        	System.out.println("You have purchased:");
+        	for (string product: sessionPurchases.keySet()) 
+        	{
+        		System.out.println(" - " + sessionPurchases.get(product) + " " + product + "(s)");
+        	}
         }
         else
         {
@@ -113,8 +121,16 @@ public class menumgr
         {
             result = "q";
         }
-        if (result == "q")
+        if (Objects.equals(result, "q"))
             currentLevel--;
+        else if (Objects.equals(result, "p"))
+        {
+        	System.out.println("You have purchased:");
+        	for (string product: sessionPurchases.keySet()) 
+        	{
+        		System.out.println(" - " + sessionPurchases.get(product) + " " + product + "(s)");
+        	}
+        }
         else
         {
             //currentLevel++;//Or keep at same level?
