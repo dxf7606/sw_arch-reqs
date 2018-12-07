@@ -79,6 +79,11 @@ public class menumgr
         	{
         		System.out.println(" - " + sessionPurchases.get(product) + " " + product + "(s)");
         	}
+        	if (sessionPurchases.keySet().size() == 0) 
+        	{
+        		System.out.println(" - NOTHING. BUY STUFF");
+        	}
+        	System.out.println("");
         }
         else
         {
@@ -130,6 +135,11 @@ public class menumgr
         	{
         		System.out.println(" - " + sessionPurchases.get(product) + " " + product + "(s)");
         	}
+        	if (sessionPurchases.keySet().size() == 0) 
+        	{
+        		System.out.println(" - NOTHING. BUY STUFF");
+        	}
+        	System.out.println("");
         }
         else
         {
