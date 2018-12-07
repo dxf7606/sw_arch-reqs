@@ -17,7 +17,7 @@ public class menumgr
     category currentCategory;
     item currentItem;
     private Controller controller;
-    private HashMap<String, Integer> sessionPurchases = new HashMap<String, Integer>();
+    private HashMap<String, String> sessionPurchases = new HashMap<String, String>();
 
     public menumgr()
     {
