@@ -17,6 +17,7 @@ public class menumgr
     category currentCategory;
     item currentItem;
     private Controller controller;
+    HashMap<String, int> sessionPurchases = new HashMap<String, int>();
 
     public menumgr()
     {
@@ -124,7 +125,7 @@ public class menumgr
 
     public void Level2()
     {
-
+    	
     }
 
     public void OrderQty(String category, String item)
@@ -136,5 +137,6 @@ public class menumgr
         menu m = new menu();
         String result = m.getSelection();
         System.out.println("You ordered:" + result);
+        sessionPurchases.put(item, result);        
     }
 }
