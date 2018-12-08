@@ -1,16 +1,18 @@
-create database if not exists online_ordering_system;
+CREATE TABLE products (
+  sku            INTEGER      NOT NULL,
+  item_count     INTEGER,
+  threshold      INTEGER      NOT NULL,
+  reorder_amount INTEGER,
+  title          VARCHAR(20)  NOT NULL,
+  description    varchar(250) NOT NULL,
+  cost           DOUBLE       NOT NULL,
+  category       VARCHAR(20)
+);
 
-use online_ordering_system;
-
-create table category (name varchar(20), description 
-varchar(250), foreign key category(name) references
-category(name) on update cascade on delete restrict);
-
-create table product (skuCode long not null, 
-itemCount int, 
-threshold int not null, reorderAmount int, 
-title varchar(20) not null, 
-description varchar(250) not null, 
-cost long not null, 
-category varchar(20))
-engine=online_ordering_system;
+CREATE TABLE categories (
+  name        VARCHAR(20),
+  description VARCHAR(250),
+  FOREIGN KEY (name) REFERENCES products (category)
+    ON UPDATE CASCADE
+    ON DELETE RESTRICT
+);

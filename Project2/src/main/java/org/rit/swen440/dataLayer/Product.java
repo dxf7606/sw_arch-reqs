@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.nio.file.Path;
 
@@ -12,19 +13,31 @@ import java.nio.file.Path;
  * A record of each product type
  */
 @Data
+@Entity
+@Table(name="products")
 public class Product {
   @Setter(AccessLevel.PRIVATE)
   private boolean updated = false;
-
+  @Transient
   private Path path;
 
+  @Id
+  @Column(name="sku")
   private int skuCode;
+  @Column(name="item_count")
   private int itemCount;
+  @Column
   private int threshold;
+  @Column(name="reorder_amount")
   private int reorderAmount;
+  @Column
   private String title;
+  @Column
   private String description;
+  @Column
   private BigDecimal cost;
+  @Column
+  private String category;
 
   /**
    * Check to see if we have enough of this item for an order
