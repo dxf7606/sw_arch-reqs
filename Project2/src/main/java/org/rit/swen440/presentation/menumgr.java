@@ -14,7 +14,7 @@ public class menumgr
     category currentCategory;
     item currentItem;
     private Controller controller;
-    private HashMap<String, String> sessionPurchases = new HashMap<String, String>();
+    private HashMap<String, Integer> sessionPurchases = new HashMap<String, Integer>();
 
     public menumgr()
     {
@@ -160,6 +160,11 @@ public class menumgr
         menu m = new menu();
         String result = m.getSelection();
         System.out.println("You ordered:" + result);
-        sessionPurchases.put(item, result);        
+		if (sessionPurchases.containsKey(item)) {
+			sessionPurchases.put(item, Integer.parseInt(result)); 
+		}
+        else {
+			sessionPurchases.put(item, sessionPurchases.get(item) + Integer.parseInt(result));
+		}      
     }
 }
