@@ -16,13 +16,7 @@ entry module, a central processing module and a data storage module.
    interacting with the data storage layer to fulfill the request.
    
 ## Architecture
-A key component of understanding and extending the **Online Ordering System** 
-is its architecture.  Management expects each team to fully document
-the architecture and how they plan to extend it.  Components to consider in
-developing the architecture documentation are the key drivers, the
-_Architectually Significant Requirements_ the team is addressing, the
-architecture itself, and how the chosen architecture addresses the
-drivers.  
+Previously, much of the controller code centered around reading directories and parsing files into objects. With the switch in storage mechanism from text files to the SQLite database, we have been able to abstract that mapping behavior into the `DataManager` class. `Controller` is now only responsible for conveying information between the presentation and data layers.
    
 ## Development
 The **Online Ordering System** was developed using the Java language.  The
