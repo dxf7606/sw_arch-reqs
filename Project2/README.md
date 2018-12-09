@@ -42,18 +42,18 @@ and a better final grade.
 
 ### Dependencies
  - Java 8 : Refactoring work done over the life of the ordering system has
- resulted in dependencies on newer versions of Java.  Currently, streams
- and lambda expressions are used.  
+ resulted in dependencies on newer versions of Java.  Currently, streams, lambda expressions, and diamond operators are used.  
  
     The customer is open to upgrading to newer Java versions if the architecture
     team identifies functionality that would enhance functionality of the
     system or readability of the resulting code.
+ - ORMLite and SQLite3: The database for the ordering system is located in the project root in the `online_ordering_system.sqlite3` file. It is accessed programmatically through the [ORMLite](http://ormlite.com/) ORM.
  - Lombok Library: Lombok annotations are used in places to auto-generate getters and
  setters.  
  - JUnit Library:  Included but never used.
 
 ### Building
-The development team choose Maven as their build tool.  Maven 3.1.0 and 3.3.9
+The development team chose Maven as their build tool.  Maven 3.1.0 and 3.3.9
 have both been successfully used.  
 
 With Maven installed, running **mvn clean install** from the root install directory should 
@@ -70,9 +70,10 @@ the project have a better sense of the importance of unit testing
 and deliver code with good unit tests and high coverage.  
 
 ## Running the Online Ordering System
-The previous team left no written instructions on how to run the system, other than it appears the main app runs via menutest.
-Management sincerely hopes the new teams understand the importance of good
-documentation and provide this critical piece of information.
+Instructions provided require that you be using the industry-standard [IntelliJ](https://www.jetbrains.com/idea/) IDE. The program can still be run from the command-line or using another IDE such as NetBeans or Eclipse, but those may require manual configuration of the classpath and are not covered here.
+1. Run `mvn clean install` to install dependencies
+1. Right-click  `menutest.java` located in the `org.rit.swen440` package and click "Run".
+1. If you wish to view the contents of the database, open `online_ordering_system.sqlite3` in your preferred SQLite viewer or add `Project2/online_ordering_system.sqlite3` as a data source in the tab on the right-hand side.
 
 **It should be noted that a large part of the compensation for working on
 this project is dependent on the management team being able to evaluate it.
