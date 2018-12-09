@@ -1,5 +1,8 @@
 package org.rit.swen440.dataLayer;
 
+import com.j256.ormlite.field.DataType;
+import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.Getter;
@@ -12,18 +15,26 @@ import java.nio.file.Path;
  * A record of each product type
  */
 @Data
+@DatabaseTable(tableName = "products")
 public class Product {
   @Setter(AccessLevel.PRIVATE)
   private boolean updated = false;
 
   private Path path;
 
+  @DatabaseField(columnName = "sku", id = true, canBeNull = false)
   private int skuCode;
+  @DatabaseField(columnName = "item_count")
   private int itemCount;
+  @DatabaseField
   private int threshold;
+  @DatabaseField(columnName = "reorder_amount")
   private int reorderAmount;
+  @DatabaseField
   private String title;
+  @DatabaseField
   private String description;
+  @DatabaseField(dataType = DataType.BIG_DECIMAL_NUMERIC)
   private BigDecimal cost;
 
   /**
