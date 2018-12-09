@@ -36,6 +36,8 @@ public class Product {
   private String description;
   @DatabaseField(dataType = DataType.BIG_DECIMAL_NUMERIC)
   private BigDecimal cost;
+  @DatabaseField
+  private String category;
 
   /**
    * Check to see if we have enough of this item for an order
